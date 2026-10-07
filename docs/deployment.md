@@ -54,7 +54,7 @@ platform's catalog.
 |---|---|---|---|---|---|---|
 | Shopping `model` | `claude-sonnet-5` | `claude-sonnet-5` | `claude-sonnet-5` | `anthropic.<SERVED_MODEL>` | `<INFERENCE_PROFILE_ID>` | `claude-sonnet-5` |
 | Merchant `model` | `claude-opus-5` | `claude-opus-5` | `claude-opus-5` | `anthropic.<SERVED_MODEL>` | `<INFERENCE_PROFILE_ID>` | `claude-opus-5` |
-| `memory_model` | `claude-haiku-4-5-20251001` | `claude-haiku-4-5-20251001` | `claude-haiku-4-5@20251001` | `anthropic.<SERVED_MODEL>` | `<INFERENCE_PROFILE_ID>` | `claude-haiku-4-5` |
+| `memory_model` | `claude-haiku-5-5` | `claude-haiku-5-5` | `claude-haiku-5-5` | `anthropic.<SERVED_MODEL>` | `<INFERENCE_PROFILE_ID>` | `claude-haiku-5-5` |
 
 - Vertex writes dated snapshots with `@`.
 - Bedrock has two endpoints. Mantle speaks the Messages API and takes dateless
@@ -93,7 +93,7 @@ common = dict(backend=your_backend, skills_dir=Path("shopping-agent/skills"))
 # GCP Vertex AI: pip install "anthropic[vertex]"; Application Default Credentials.
 agent = ShoppingAgent(
     **common,
-    config=ShoppingAgentConfig(memory_model="claude-haiku-4-5@20251001"),
+    config=ShoppingAgentConfig(memory_model="claude-haiku-5-5"),
     client=AsyncAnthropicVertex(project_id="your-project", region="global"),
 )
 
@@ -101,7 +101,7 @@ agent = ShoppingAgent(
 agent = ShoppingAgent(
     **common,
     config=ShoppingAgentConfig(
-        model="anthropic.your-served-model", memory_model="anthropic.claude-haiku-4-5"
+        model="anthropic.your-served-model", memory_model="anthropic.claude-haiku-5-5"
     ),
     client=AsyncAnthropicBedrockMantle(aws_region="us-east-1"),
 )
@@ -109,7 +109,7 @@ agent = ShoppingAgent(
 # Microsoft Foundry: an Azure API key, or azure_ad_token_provider= for Entra ID.
 agent = ShoppingAgent(
     **common,
-    config=ShoppingAgentConfig(memory_model="claude-haiku-4-5"),
+    config=ShoppingAgentConfig(memory_model="claude-haiku-5-5"),
     client=AsyncAnthropicFoundry(resource="your-resource", api_key="your-azure-key"),
 )
 

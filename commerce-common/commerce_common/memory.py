@@ -454,7 +454,8 @@ async def extract_facts(
     unless its value is unchanged. At most ``max_new_facts`` are returned."""
     request: dict[str, Any] = {
         "model": model,
-        "max_tokens": 600,
+        "max_tokens": 1024,
+        "output_config": {"effort": "low"},
         "system": extraction_prompt,
         "tools": [_RECORD_FACT_TOOL],
         "messages": [
