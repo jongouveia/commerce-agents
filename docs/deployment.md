@@ -120,8 +120,8 @@ agent = ShoppingAgent(
 )
 ```
 
-The packages declare `anthropic>=0.91`, the release that adds `AsyncAnthropicBedrockMantle`,
-the newest of the client classes above.
+The packages declare `anthropic>=2.1,<3`. `AsyncAnthropicBedrockMantle`, the newest of the client
+classes above, arrived in 0.91.
 
 ## Agent SDK runtimes: the CLI environment
 
